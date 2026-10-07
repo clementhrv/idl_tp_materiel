@@ -15,9 +15,9 @@ Taille de ligne : **64 octets** (confirmée par `getconf`).
 
 1. Le débit baisse vers 64 Kio, 2 Mio et 8 Mio : ce sont les passages respectifs du L1, du L2 et du L3.
 
-2. Les débits sont environ 40 Go/s en L1, 35 Go/s en L2, 25 Go/s en L3 et 17 Go/s en RAM. Le L1 est donc environ 2,4 fois plus rapide que la RAM.
+2. Les débits sont environ 32 Go/s en L1, 30 Go/s en L2, 17 Go/s en L3  (correspondance des creux sur mountain_stride1.png) et 17 Go/s en RAM. Le L1 est donc environ 2 fois plus rapide que la RAM.
 
-3. Pour un tableau de 64 Mio, le débit baisse quand le pas augmente, car une ligne de cache est chargée mais peu utilisée. Le débit se stabilise vers le pas 8 : `8 × 8 octets = 64 octets`. La ligne de cache fait donc 64 octets.
+3. Pour un tableau de 64 Mio, le débit baisse quand le pas augmente, car une ligne de cache est chargée mais peu utilisée. Le débit se stabilise vers le pas 8 : `8 × 8 octets = 64 octets`. La ligne de cache fait donc 64 octets. C'est également la valeur obtenue en faisant la commande donnée.
 
-4. Pour un tableau qui tient dans le L1, le pas a peu d'effet : les données sont déjà dans le cache le plus rapide.
+4. Pour un tableau qui tient dans le L1, le pas a peu d'effet comme on le voit sur la figure mountain_stride32K.png: les données sont déjà dans le cache le plus rapide.
 
